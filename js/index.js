@@ -19,11 +19,11 @@ const peticionClima = async() => {
     const ciudad = await response.json()
 
     textoCiudad.textContent = ciudad.name
-    temperatura.textContent= kelviToCelsius(ciudad.main.temp) + " C"; 
+    temperatura.textContent= kelviToCelsius(ciudad.main.temp) + "°C"; 
     icono.src = `http://openweathermap.org/img/w/${ciudad.weather[0].icon}.png`
     pronostico.textContent = ciudad.weather[0].description
-    humedad.textContent = ciudad.main.humidity
-    viento.textContent = ciudad.wind.speed
+    humedad.textContent = ciudad.main.humidity + "%";
+    viento.textContent = ciudad.wind.speed + "Km/h"
 }
 
 btn.addEventListener("click", peticionClima)
